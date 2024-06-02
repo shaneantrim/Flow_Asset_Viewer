@@ -2,7 +2,7 @@ import shotgun_api3
 from pprint import pprint # useful for debugging
 
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QComboBox
 from shotgun_api3 import Shotgun
 
 # Configuration
