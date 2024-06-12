@@ -5,12 +5,12 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QComboBox
 from shotgun_api3 import Shotgun
 
-# Configuration
+# Configuration information to connect to the Flow site
 SHOTGUN_URL = "https://shane-shotgrid.shotgrid.autodesk.com"
 SCRIPT_NAME = "Asset_Data_Tool"
 SCRIPT_KEY = "Inlsjiyni1jcmpuq*jzxkmhgu"
 
-# Function to get Shotgun connection
+# Function to try connecting to the Flow site
 def get_shotgun_connection():
     try:
         sg = Shotgun(SHOTGUN_URL, SCRIPT_NAME, SCRIPT_KEY)
@@ -37,7 +37,7 @@ def fetch_project_id(sg, project_name):
         print("Error fetching project ID:", e)
         raise
 
-# Function to fetch filtered assets
+# Function to fetch all assets for project ID
 def fetch_all_assets_for_project(sg, project_id):
     try:
         filters = [['project', 'is', {'type': 'Project', 'id': project_id}]]
@@ -49,7 +49,7 @@ def fetch_all_assets_for_project(sg, project_id):
         print("Error fetching assets:", e)
         raise
 
-# Main window class
+# Main window class to display PySide window
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -78,12 +78,10 @@ class MainWindow(QMainWindow):
             self.table_widget.setItem(row_num, 3, QTableWidgetItem(asset.get('description', 'N/A')))
         self.table_widget.resizeColumnsToContents()
 
-# Main function
+# Main function to fetch assets for project ID and populate table
 def main():
     app = QApplication(sys.argv)
     main_window = MainWindow()
-
-    # Fetch assets for a specific project and populate the table
     try:
         sg = get_shotgun_connection()
         project_name = "Demo: Animation"
