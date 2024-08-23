@@ -1,5 +1,7 @@
 # Flow_Asset_Viewer
-PySide GUI for viewing Asset Info from Flow Production Tracking Software
+PyQt GUI for viewing Asset Info from Autodesk Flow Production Tracking Software.
+
+I've built a tool that allows you to fetch all of the assets from a Flow project using the project ID and display all of those assets in a table that pops up which contains all of the assets information such as asset ID number, name, asset type and the description. This tool is useful for quickly seeing all of the assets in a table for any given film or project. 
 
 # Installation
 - Create virtual env with required version  `python3.10 -m venv venv`
