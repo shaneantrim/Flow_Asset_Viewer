@@ -5,10 +5,8 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QComboBox
 from shotgun_api3 import Shotgun
 
-# Configuration information to connect to the Flow site
-SHOTGUN_URL = "https://shane-shotgrid.shotgrid.autodesk.com"
-SCRIPT_NAME = "Asset_Data_Tool"
-SCRIPT_KEY = "Inlsjiyni1jcmpuq*jzxkmhgu"
+# Import configuration from configuration.py
+from config import SHOTGUN_URL, SCRIPT_NAME, SCRIPT_KEY
 
 # Function to try connecting to the Flow site
 def get_shotgun_connection():
